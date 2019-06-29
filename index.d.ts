@@ -1,4 +1,4 @@
-import Vue, { ComponentOptions, ComputedOptions } from 'vue';
+import Vue, { ComponentOptions } from 'vue';
 import { CookieAttributes } from 'js-cookie';
 
 // todo: match this with user on server
@@ -51,12 +51,6 @@ interface Auth<T = any> {
 declare module 'vue/types/options' {
     interface ComponentOptions<V extends Vue> {
         auth?: boolean;
-    }
-}
-
-declare module 'vue/types/computed' {
-    interface ComputedOptions<V extends Vue> {
-        $auth: Auth<User>;
     }
 }
 
