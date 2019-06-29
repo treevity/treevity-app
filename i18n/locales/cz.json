@@ -1,0 +1,23 @@
+{
+    "header": {
+        "user": "Uživatel",
+        "logout": "odhlásit se"
+    },
+    "notifications": {
+        "login": "Byl/a jste úspěšně přihlášen do systému.",
+        "logout": "Byl/a jste úspěšně odhlášen ze systému."
+    },
+    "login": {
+        "title": "Přihlášení",
+        "email": "E-mail",
+        "password": "Heslo",
+        "login": "Přihlásit se",
+        "noAccount": "Nemáte účet",
+        "register": "Zaregistrujete se",
+        "forgottenPassword": "Zapomněli jste heslo",
+        "click": "Klikněte zde"
+    },
+    "home": {
+        "title": "Hlavní strana"
+    }
+}

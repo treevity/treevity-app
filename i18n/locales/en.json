@@ -1,0 +1,23 @@
+{
+    "header": {
+        "user": "User",
+        "logout": "log out"
+    },
+    "notifications": {
+        "login": "You have been successfully logged into system.",
+        "logout": "You have been successfully logged off from system."
+    },
+    "login": {
+        "title": "Login",
+        "email": "E-mail",
+        "login": "Log in",
+        "password": "Password",
+        "noAccount": "Don't have an account",
+        "register": "Register here",
+        "forgottenPassword": "Forgot password",
+        "click": "Click here"
+    },
+    "home": {
+        "title": "Home"
+    }
+}
