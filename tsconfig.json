@@ -26,10 +26,13 @@
             ]
         },
         "types": [
-            "@type/node",
+            "@types/node",
+            "@types/jest",
             "@nuxt/vue-app",
             "nuxt-i18n/types"
-        ],
-        "plugins": [{ "name": "ts-vue-plugin" }]
-    }
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }
