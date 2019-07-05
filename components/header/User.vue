@@ -12,6 +12,7 @@ export default class User extends Vue {
     async handleLogout(): Promise<any> {
         try {
             await this.$auth.logout();
+            await this.$message.success(this.$i18n.t('notifications.logout'));
         } catch (error) {
             await this.$message.error(error.message);
         }

@@ -29,7 +29,8 @@
             "@types/node",
             "@types/jest",
             "@nuxt/vue-app",
-            "nuxt-i18n/types"
+            "nuxt-i18n/types",
+            "@nuxtjs/apollo/types"
         ]
     },
     "exclude": [

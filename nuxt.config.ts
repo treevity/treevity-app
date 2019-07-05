@@ -6,6 +6,7 @@ const pkg = require('./package');
 
 const client: any = config.get('client');
 const server: any = config.get('server');
+const url = `http://${server.host}:${server.port}/graphql`;
 
 const nuxtConfig: NuxtConfiguration = {
     mode: 'universal',
@@ -39,11 +40,14 @@ const nuxtConfig: NuxtConfiguration = {
      ** Nuxt.js modules
      */
     modules: [
-        '@nuxtjs/axios',
         '@nuxtjs/auth',
         '@nuxtjs/style-resources',
-        'nuxt-i18n'
+        'nuxt-i18n',
+        '@nuxtjs/apollo'
     ],
+    /*
+      ** Nuxt-i18n options
+     */
     i18n: {
         locales,
         pages,
@@ -52,6 +56,21 @@ const nuxtConfig: NuxtConfiguration = {
         langDir: 'i18n/locales/',
         parsePages: false,
         seo: false
+    },
+    /*
+      ** Apollo options
+     */
+    apollo: {
+        defaultOptions: {
+            $query: {
+                loadingKey: 'loading'
+            }
+        },
+        clientConfigs: {
+            default:  {
+                httpEndpoint: url
+            }
+        }
     },
     /*
      ** Global style resources
@@ -69,21 +88,16 @@ const nuxtConfig: NuxtConfiguration = {
         '~/plugins/mixins'
     ],
     /*
-    ** axios configuration
-     */
-    axios: {
-        baseURL: `http://${server.host}:${server.port}`
-    },
-    /*
     ** Auth configuration
      */
     auth: {
         strategies: {
-            local: {
+            localGraphQL: {
+                _scheme: '~/apollo/scheme.js',
                 endpoints: {
-                    login: { url: '/auth/login', method: 'post', propertyName: 'accessToken' },
-                    logout: { url: '/auth/logout', method: 'post' },
-                    user: { url: '/users/me', method: 'get', propertyName: false }
+                    login: { url, propertyName: 'accessToken' },
+                    logout: { url },
+                    user: { url, method: 'get', propertyName: 'loginRO' }
                 }
             }
         },

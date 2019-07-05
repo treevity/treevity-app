@@ -63,19 +63,14 @@ export default class Login extends Vue {
         this.form.validateFields(async (err, values) => {
             if (!err) {
                 try {
-                    await this.$auth.loginWith('local', {
-                        data: {
-                            email: values.email,
-                            password: values.password
-                        }
+                    await this.$auth.loginWith('localGraphQL', {
+                        email: values.email,
+                        password: values.password
                     });
                     await this.$message.success(this.$i18n.t('notifications.login'));
                 } catch (error) {
-                    if (error.response && error.response.data) {
-                        this.error = error.response.data.message;
-                    } else {
-                        this.error = error.message;
-                    }
+                    // TODO: add utility to process graphQL errors
+                    this.error = error.message;
                     this.form.resetFields();
                 }
             }
