@@ -20,6 +20,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Meta } from '@/utils/custom-decorators';
+import { getErrors } from "@/utils/helpers";
 
 @Component({
     layout: 'auth'
@@ -69,8 +70,7 @@ export default class Login extends Vue {
                     });
                     await this.$message.success(this.$i18n.t('notifications.login'));
                 } catch (error) {
-                    // TODO: add utility to process graphQL errors
-                    this.error = error.message;
+                    this.error = getErrors(error);
                     this.form.resetFields();
                 }
             }

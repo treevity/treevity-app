@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { getErrors } from "@/utils/helpers";
 
 @Component({})
 export default class User extends Vue {
@@ -14,7 +15,7 @@ export default class User extends Vue {
             await this.$auth.logout();
             await this.$message.success(this.$i18n.t('notifications.logout'));
         } catch (error) {
-            await this.$message.error(error.message);
+            await this.$message.error(getErrors(error));
         }
     }
 }
