@@ -15,7 +15,12 @@
         "noAccount": "Don't have an account",
         "register": "Register here",
         "forgottenPassword": "Forgot password",
-        "click": "Click here"
+        "click": "Click here",
+        "validation": {
+            "validEmail": "Please enter valid e-mail address.",
+            "requiredEmail": "Please input your e-mail.",
+            "requiredPassword": "Please input your password."
+        }
     },
     "home": {
         "title": "Home"

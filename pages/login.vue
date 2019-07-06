@@ -28,27 +28,28 @@ import { getErrors } from "@/utils/helpers";
 export default class Login extends Vue {
     form: any;
     error: string = '';
-    formRules = {
-        email: [
-            'email',
-            {
-                rules: [
-                    { required: true, message: 'Please input your e-mail.' },
-                    { type: 'email', message: 'Please enter valid e-mail address.' }
-                ]
-            }
-        ],
-        password: [
-            'password',
-            {
-                rules: [
-                    { required: true, message: 'Please input your password!' }
-                ]
-            }
-        ]
-    };
+    formRules: any;
 
     beforeCreate() {
+        this.formRules = {
+            email: [
+                'email',
+                {
+                    rules: [
+                        { required: true, message: this.$i18n.t('login.validation.requiredEmail') },
+                        { type: 'email', message: this.$i18n.t('login.validation.validEmail') }
+                    ]
+                }
+            ],
+            password: [
+                'password',
+                {
+                    rules: [
+                        { required: true, message: this.$i18n.t('login.validation.requiredPassword') }
+                    ]
+                }
+            ]
+        };
         this.form = this.$form.createForm(this);
     }
 

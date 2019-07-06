@@ -15,7 +15,12 @@
         "noAccount": "Nemáte účet",
         "register": "Zaregistrujete se",
         "forgottenPassword": "Zapomněli jste heslo",
-        "click": "Klikněte zde"
+        "click": "Klikněte zde",
+        "validation": {
+            "validEmail": "Zadejte prosím e-mailovou adresu ve správném tvaru.",
+            "requiredEmail": "Zadejte prosím svou e-mailovou adresu.",
+            "requiredPassword": "Zadejte prosím své heslo."
+        }
     },
     "home": {
         "title": "Hlavní strana"
