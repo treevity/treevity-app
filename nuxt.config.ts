@@ -93,12 +93,7 @@ const nuxtConfig: NuxtConfiguration = {
     auth: {
         strategies: {
             localGraphQL: {
-                _scheme: '~/apollo/scheme.js',
-                endpoints: {
-                    login: { url, propertyName: 'accessToken' },
-                    logout: { url },
-                    user: { url, method: 'get', propertyName: 'loginRO' }
-                }
+                _scheme: '~/apollo/scheme'
             }
         },
         watchLoggedIn: true,
