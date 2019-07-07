@@ -2,7 +2,8 @@
     a-col(:span="9", class="form")
         div(class="header")
             h1 {{ $t('login.title') }}
-        a-alert(type="error", showIcon, v-if="error", :message="error")
+        a-alert(type="error", showIcon, v-if="error")
+            div(slot="message", v-html="error")
         a-form(:form="form", @submit.prevent="handleSubmit")
             a-form-item
                 a-input(type="text", v-decorator="formRules.email", size="large", :placeholder="$t('login.email')")
@@ -92,6 +93,7 @@ export default class Login extends Vue {
     .ant-alert
         margin-top: $form-padding
         margin-bottom: $form-padding
+        text-align: left
     .links
         margin-top: $form-padding
 </style>
