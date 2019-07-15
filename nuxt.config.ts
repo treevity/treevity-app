@@ -105,7 +105,7 @@ const nuxtConfig: NuxtConfiguration = {
     ** Router configuration
      */
     router: {
-        middleware: ['auth']
+        middleware: ['auth', 'role']
     },
     generate: {
         dir: './dist'
