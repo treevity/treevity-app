@@ -10,7 +10,7 @@ export default ({ route, app, store, redirect }) => {
 
     const { user } = authData;
     const userRoles = user.roles.length ? user.roles.map(role => role.name) : [];
-    const pageRoles = routeOption(route, 'roles');
+    const pageRoles = getPageRoles(route);
 
     if (!pageRoles.length) return;
 
@@ -19,20 +19,28 @@ export default ({ route, app, store, redirect }) => {
     }
 };
 
-const routeOption = (route, key) => {
-    const options = route.matched.map((m) => {
+const getPageRoles = (route) => {
+    const roles: any = [];
+    for (const m of route.matched) {
+        const components = Object.values(m.components);
         if (process.client) {
             // Client
-            return Object.values(m.components).map((component: any) => component.options && component.options[key]);
+            components.forEach((component: any) => {
+                if (component.options && component.options.roles) {
+                    roles.push(component.options.roles);
+                }
+            });
+        } else {
+            // SSR
+            components.forEach((component: any) =>
+                Object.values(component._Ctor).forEach((ctor: any) => {
+                    if (ctor.options && ctor.options.roles) {
+                        roles.push(ctor.options.roles);
+                    }
+                })
+            );
         }
+    }
 
-        // SSR
-        return Object.values(m.components).map((component: any) =>
-            Object.values(component._Ctor).map(
-                (ctor: any) => ctor.options && ctor.options[key]
-            )
-        );
-    });
-
-    return _.compact(_.flattenDeep(options));
+    return _.flattenDeep(roles);
 };
