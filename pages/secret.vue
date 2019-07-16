@@ -9,7 +9,7 @@
     import { Meta } from '@/utils/custom-decorators';
 
     @Component({
-        roles: ['superAdmin', 'admin']
+        roles: ['superAdmin']
     })
     export default class Secret extends Vue {
         @Meta

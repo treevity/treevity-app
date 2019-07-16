@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import * as messages from '~/store/messages';
 
 export default ({ route, app, store, redirect }) => {
     const authData = store.state.auth;
@@ -15,6 +16,10 @@ export default ({ route, app, store, redirect }) => {
     if (!pageRoles.length) return;
 
     if (!pageRoles.some(el => userRoles.includes(el))) {
+        store.commit(`${messages.name}/${messages.types.SET}`, {
+            type: 'error',
+            translation: 'notifications.notAuthorized'
+        });
         return redirect(authRedirects.home);
     }
 };

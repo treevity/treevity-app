@@ -5,7 +5,8 @@
     },
     "notifications": {
         "login": "Byl/a jste úspěšně přihlášen do systému.",
-        "logout": "Byl/a jste úspěšně odhlášen ze systému."
+        "logout": "Byl/a jste úspěšně odhlášen ze systému.",
+        "notAuthorized": "K přístupu na tuto stránku nemáte dostatečné oprávnění"
     },
     "login": {
         "title": "Přihlášení",

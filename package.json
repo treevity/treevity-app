@@ -25,7 +25,8 @@
         "nuxt-i18n": "^5.12.7",
         "tslint-config-airbnb": "^5.11.1",
         "vue": "^2.6.10",
-        "vue-property-decorator": "^8.2.1"
+        "vue-property-decorator": "^8.2.1",
+        "vuex-class": "^0.3.2"
     },
     "devDependencies": {
         "@nuxt/typescript": "2.8.1",
