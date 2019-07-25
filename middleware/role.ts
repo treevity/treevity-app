@@ -20,7 +20,7 @@ export default ({ route, app, store, redirect }) => {
             type: 'error',
             translation: 'notifications.notAuthorized'
         });
-        return redirect(authRedirects.home);
+        return redirect(authRedirects.home, { error: 'unauthorized' });
     }
 };
 
