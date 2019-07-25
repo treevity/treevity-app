@@ -3,6 +3,7 @@
         a-col(:span="12")
             logo
             h1(class="title") Treevity
+            nuxt-link(:to="localePath('secret')") Secured page
 </template>
 
 <script lang="ts">

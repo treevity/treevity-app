@@ -5,7 +5,8 @@
     },
     "notifications": {
         "login": "You have been successfully logged into system.",
-        "logout": "You have been successfully logged off from system."
+        "logout": "You have been successfully logged off from system.",
+        "notAuthorized": "You are not authorized to access this page."
     },
     "login": {
         "title": "Login",

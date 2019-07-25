@@ -9,9 +9,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
 import User from '@/components/header/User.vue';
 import LanguageSwitcher from '@/components/header/LanguageSwitcher.vue';
+import * as messages from '@/store/messages';
+
+const Messages = namespace(messages.name);
 
 @Component({
     components: {
@@ -19,7 +23,16 @@ import LanguageSwitcher from '@/components/header/LanguageSwitcher.vue';
         LanguageSwitcher
     }
 })
-export default class DefaultLayout extends Vue {}
+export default class DefaultLayout extends Vue {
+    @Messages.Getter('allMessages') allMessages;
+
+    @Watch('allMessages')
+    onNewMessages() {
+        for (const message of this.allMessages) {
+            this.$message[message.type](this.$t(message.translation));
+        }
+    }
+}
 </script>
 
 <style lang="sass" scoped>

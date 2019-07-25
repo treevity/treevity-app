@@ -26,5 +26,9 @@ export const pages = {
     login: {
         en: '/login',
         cz: '/prihlaseni'
+    },
+    secret: {
+        en: '/secret',
+        cz: '/zabezpeceno'
     }
 };

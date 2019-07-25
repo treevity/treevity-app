@@ -3,6 +3,9 @@ query {
         id,
         firstName,
         surname,
-        email
+        email,
+        roles {
+            name
+        }
     }
 }
