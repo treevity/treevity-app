@@ -2,7 +2,10 @@ import { redirects } from '@/i18n';
 
 export default ({ app }) => {
     changeAuthOptions(app);
-    app.$auth.onRedirect(() => changeAuthOptions(app));
+    app.router.beforeEach((to, from, next) => {
+        changeAuthOptions(app);
+        next();
+    });
 };
 
 const changeAuthOptions = (app) => {

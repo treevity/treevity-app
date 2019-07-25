@@ -30,5 +30,9 @@ export const pages = {
     secret: {
         en: '/secret',
         cz: '/zabezpeceno'
+    },
+    'admin/index': {
+        en: '/admin',
+        cz: '/admin'
     }
 };
