@@ -1,4 +1,4 @@
-import NuxtConfiguration from '@nuxt/config';
+import { Configuration } from '@nuxt/types';
 import { pages, locales } from './i18n';
 
 const config = require('config');
@@ -8,7 +8,20 @@ const client: any = config.get('client');
 const server: any = config.get('server');
 const url = `http://${server.host}:${server.port}/graphql`;
 
-const nuxtConfig: NuxtConfiguration = {
+const nuxtConfig: Configuration = {
+    buildModules: ['@nuxt/typescript-build'],
+    typescript: {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true
+    },
+    dir: {
+        assets: 'assets',
+        layouts: 'layouts',
+        middleware: 'middleware',
+        pages: 'pages',
+        static: 'static',
+        store: 'store'
+    },
     mode: 'universal',
     srcDir: './',
     server: {

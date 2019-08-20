@@ -1,9 +1,10 @@
+import { Middleware, Context } from '@nuxt/types';
 import * as _ from 'lodash';
 import * as messages from '~/store/messages';
 
-export default ({ route, app, store, redirect }) => {
+const roleMiddleware: Middleware = ({ route, app, store, redirect }: Context) => {
     const authData = store.state.auth;
-    const currentPath = app.context.route.path;
+    const currentPath = route.path;
     const authRedirects = app.$auth.options.redirect;
     const authPaths = Object.values(authRedirects);
 
@@ -49,3 +50,5 @@ const getPageRoles = (route) => {
 
     return _.flattenDeep(roles);
 };
+
+export default roleMiddleware;

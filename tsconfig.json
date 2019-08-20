@@ -28,7 +28,7 @@
         "types": [
             "@types/node",
             "@types/jest",
-            "@nuxt/vue-app",
+            "@nuxt/types",
             "nuxt-i18n/types",
             "@nuxtjs/apollo/types"
         ]
