@@ -25,5 +25,10 @@
     },
     "home": {
         "title": "Hlavní strana"
+    },
+    "admin": {
+        "index": {
+            "title": "Administrátorská nástěnka"
+        }
     }
 }

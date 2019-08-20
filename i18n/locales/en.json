@@ -25,5 +25,10 @@
     },
     "home": {
         "title": "Home"
+    },
+    "admin": {
+        "index": {
+            "title": "Admin dashboard"
+        }
     }
 }
